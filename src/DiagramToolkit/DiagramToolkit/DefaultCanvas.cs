@@ -10,7 +10,7 @@ namespace DiagramToolkit
     {
         private ITool activeTool;
         private List<DrawingObject> drawingObjects;
-
+        private delegate void DELEGATE();
         public DefaultCanvas()
         {
             Init();
@@ -29,9 +29,10 @@ namespace DiagramToolkit
             this.MouseUp += DefaultCanvas_MouseUp;
             this.MouseMove += DefaultCanvas_MouseMove;
             this.MouseDoubleClick += DefaultCanvas_MouseDoubleClick;
-            this.KeyDown += DefaultCanvas_KeyDown;
+            this.KeyDown += new KeyEventHandler(DefaultCanvas_KeyDown);
             this.KeyUp += DefaultCanvas_KeyUp;
             this.PreviewKeyDown += DefaultCanvas_PreviewKeyDown;
+
         }
 
         private void DefaultCanvas_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -56,7 +57,7 @@ namespace DiagramToolkit
             }
         }
 
-        private void DefaultCanvas_KeyUp(object sender, KeyEventArgs e)
+        public void DefaultCanvas_KeyUp(object sender, KeyEventArgs e)
         {
             if (this.activeTool != null)
             {
@@ -64,7 +65,7 @@ namespace DiagramToolkit
             }
         }
 
-        private void DefaultCanvas_KeyDown(object sender, KeyEventArgs e)
+        public void DefaultCanvas_KeyDown(object sender, KeyEventArgs e)
         {
             if (this.activeTool != null)
             {
@@ -201,6 +202,11 @@ namespace DiagramToolkit
                 drawObj.Deselect();
             }
         }
-        
+
+        public void RepaintFromOtherThread()
+        {
+            Delegate del = new DELEGATE(this.Repaint);
+            this.Invoke(del);
+        }
     }
 }

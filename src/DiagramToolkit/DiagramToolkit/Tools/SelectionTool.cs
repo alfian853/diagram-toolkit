@@ -1,4 +1,5 @@
 ﻿using DiagramToolkit.Shapes;
+using DiagramToolkit.States;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -76,7 +77,11 @@ namespace DiagramToolkit.Tools
 
         public void ToolMouseUp(object sender, MouseEventArgs e)
         {
-            
+            if(selectedObject != null)
+            {
+                selectedObject.Deselect();
+                selectedObject = null;
+            }
         }
 
         public void ToolMouseDoubleClick(object sender, MouseEventArgs e)

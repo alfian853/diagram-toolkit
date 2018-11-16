@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace DiagramToolkit
@@ -35,6 +36,8 @@ namespace DiagramToolkit
         {
             this.selectedCanvas = (ICanvas)e.TabPage.Controls[0];
             this.toolbox.ActiveTool = this.selectedCanvas.GetActiveTool();
+            this.KeyDown += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyDown);
+            this.KeyUp += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyUp);
         }
 
         public void AddCanvas(ICanvas canvas)
@@ -42,6 +45,7 @@ namespace DiagramToolkit
             canvases.Add(canvas);
             TabPage tabPage = new TabPage(canvas.Name);
             tabPage.Controls.Add((Control)canvas);
+            
             this.Controls.Add(tabPage);
             this.SelectedTab = tabPage;
             this.selectedCanvas = canvas;
@@ -49,6 +53,9 @@ namespace DiagramToolkit
 
         public ICanvas GetSelectedCanvas()
         {
+            this.KeyDown += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyDown);
+            this.KeyUp += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyUp);
+
             return this.selectedCanvas;
         }
 
@@ -65,6 +72,9 @@ namespace DiagramToolkit
 
         public void SelectCanvas(ICanvas canvas)
         {
+            this.KeyDown += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyDown);
+            this.KeyUp += new KeyEventHandler(((DefaultCanvas)selectedCanvas).DefaultCanvas_KeyUp);
+
             this.selectedCanvas = canvas;
         }
     }

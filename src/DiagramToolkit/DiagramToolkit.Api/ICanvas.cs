@@ -13,8 +13,8 @@ namespace DiagramToolkit
         ITool GetActiveTool();
         void SetActiveTool(ITool tool);
         void Repaint();
+        void RepaintFromOtherThread();
         void SetBackgroundColor(Color color);
-
         void AddDrawingObject(DrawingObject drawingObject);
         void RemoveDrawingObject(DrawingObject drawingObject);
 

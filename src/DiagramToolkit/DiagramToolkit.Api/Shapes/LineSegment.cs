@@ -13,13 +13,12 @@ namespace DiagramToolkit.Shapes
         public Point Startpoint { get; set; }
         public Point Endpoint { get; set; }
 
-        private Pen pen;
+        protected Pen pen;
 
         public LineSegment()
         {
             this.pen = new Pen(Color.Black);
             pen.Width = 1.5f;
-
         }
 
         public LineSegment(Point startpoint) :
@@ -37,7 +36,6 @@ namespace DiagramToolkit.Shapes
         public override void RenderOnStaticView()
         {
             pen.Color = Color.Black;
-            pen.Width = 1.5f;
             pen.DashStyle = DashStyle.Solid;
 
             if (this.GetGraphics() != null)
@@ -50,7 +48,6 @@ namespace DiagramToolkit.Shapes
         public override void RenderOnEditingView()
         {
             pen.Color = Color.Blue;
-            pen.Width = 1.5f;
             pen.DashStyle = DashStyle.Solid;
 
             if (this.GetGraphics() != null)
@@ -63,7 +60,6 @@ namespace DiagramToolkit.Shapes
         public override void RenderOnPreview()
         {
             pen.Color = Color.Red;
-            pen.Width = 1.5f;
             pen.DashStyle = DashStyle.DashDotDot;
 
             if (this.GetGraphics() != null)
