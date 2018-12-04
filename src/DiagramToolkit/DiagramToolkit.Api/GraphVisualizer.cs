@@ -1,7 +1,6 @@
 ﻿using DiagramToolkit.Api.Shapes;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 
 namespace DiagramToolkit
@@ -41,22 +40,20 @@ namespace DiagramToolkit
                 if (child.Item2 != null && !child.Item2.isVisited())
                 {
                     child.Item1.setVisit(true);
-                    dfs(child.Item2);
-                    child.Item1.setVisit(false);
+                    dfsUtil(child.Item2);
                 }
             }
-            cNode.setVisit(false);
         }
 
         public static void dfs(INode cNode)
         {
             dfsUtil(cNode);
             canvas.RepaintFromOtherThread();
+            unVisitAll(cNode);
         }
 
         public static void bfs(INode node)
         {
-
             Queue<INode> queue = new Queue<INode>();
             queue.Enqueue(node);
             INode cNode;
@@ -72,7 +69,6 @@ namespace DiagramToolkit
                     if (child.Item2 != null && !child.Item2.isVisited())
                     {
                         queue.Enqueue(child.Item2);
-                        child.Item1.setVisit(true);
                     }
                 }
             }
