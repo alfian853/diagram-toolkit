@@ -19,7 +19,6 @@ namespace DiagramToolkit.Tools
 
         private Dictionary<Keys, bool> isPressed;
 
-
         int nextNodeNum;
         private BackgroundWorker worker;
 
@@ -27,7 +26,7 @@ namespace DiagramToolkit.Tools
         {
             this.Name = "Node tool";
             this.ToolTipText = "Node tool";
-            this.Image = IconSet.font;
+            this.Image = IconSet.node;
             this.CheckOnClick = true;
             this.nextNodeNum = 0;
             GraphVisualizer.canvas = this.canvas;
@@ -69,6 +68,10 @@ namespace DiagramToolkit.Tools
         public void ToolKeyDown(object sender, KeyEventArgs e)
         {
             isPressed[e.KeyCode] = true;
+            if(e.KeyCode == Keys.R)
+            {
+                this.nextNodeNum = 0;
+            }
         }
 
         public void ToolKeyUp(object sender, KeyEventArgs e)

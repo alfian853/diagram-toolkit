@@ -90,6 +90,9 @@
     <Compile Include="Tools\LineTool.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Tools\NodeTool.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Tools\RectangleTool.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -103,6 +106,7 @@
     <EmbeddedResource Include="IconSet.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>IconSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -155,6 +159,9 @@
       <Project>{d8674ad1-74a5-421c-814c-a72cb8bbdc61}</Project>
       <Name>DiagramToolkit.Api</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\node.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
