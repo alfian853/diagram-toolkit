@@ -109,5 +109,10 @@ namespace DiagramToolkit.Api.Shapes
                 this.ChangeState(StaticState.GetInstance());
             }
         }
+
+        public override void Translate(int x, int y, int xAmount, int yAmount)
+        {
+            //do nothing
+        }
     }
 }
