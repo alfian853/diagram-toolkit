@@ -1,13 +1,7 @@
 ﻿using DiagramToolkit.Shapes;
 using DiagramToolkit.States;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiagramToolkit.Api.Shapes
 {
@@ -102,7 +96,7 @@ namespace DiagramToolkit.Api.Shapes
         {
             if (isVisited)
             {
-                this.ChangeState(EditState.GetInstance());
+                this.ChangeState(PreviewState.GetInstance());
             }
             else
             {
@@ -112,7 +106,7 @@ namespace DiagramToolkit.Api.Shapes
 
         public override void Translate(int x, int y, int xAmount, int yAmount)
         {
-            //do nothing
+            
         }
     }
 }

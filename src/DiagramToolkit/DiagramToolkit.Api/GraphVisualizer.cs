@@ -23,6 +23,7 @@ namespace DiagramToolkit
                 {
                     if (child.Item2 != null && child.Item2.isVisited())
                     {
+                        child.Item1.setVisit(false);
                         queue.Enqueue(child.Item2);
                     }
                 }
@@ -57,17 +58,18 @@ namespace DiagramToolkit
             Queue<INode> queue = new Queue<INode>();
             queue.Enqueue(node);
             INode cNode;
-
+            node.setVisit(true);
             while (queue.Count != 0)
             {
                 cNode = queue.Dequeue();
-                cNode.setVisit(true);
                 canvas.RepaintFromOtherThread();
                 Thread.Sleep(1000);
                 foreach (Tuple<IEdge, INode> child in cNode.GetChilds())
                 {
                     if (child.Item2 != null && !child.Item2.isVisited())
                     {
+                        child.Item1.setVisit(true);
+                        child.Item2.setVisit(true);
                         queue.Enqueue(child.Item2);
                     }
                 }
