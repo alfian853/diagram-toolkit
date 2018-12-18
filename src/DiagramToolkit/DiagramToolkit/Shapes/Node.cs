@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace DiagramToolkit.Api.Shapes
+namespace DiagramToolkit.Shapes
 {
     public class Node : DrawingObject, INode
     {

@@ -1,11 +1,10 @@
-﻿using DiagramToolkit.Api.Shapes;
+﻿using DiagramToolkit.Shapes;
 using DiagramToolkit.States;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace DiagramToolkit.Tools

@@ -1,8 +1,7 @@
-﻿using DiagramToolkit.Api.Shapes;
+﻿using DiagramToolkit.Shapes;
 using System;
 using System.Collections.Generic;
 using System.Threading;
-
 namespace DiagramToolkit
 {
     public class GraphVisualizer

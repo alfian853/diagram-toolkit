@@ -1,4 +1,4 @@
-﻿namespace DiagramToolkit.Api.Shapes
+﻿namespace DiagramToolkit.Shapes
 {
     public interface IEdge
     {

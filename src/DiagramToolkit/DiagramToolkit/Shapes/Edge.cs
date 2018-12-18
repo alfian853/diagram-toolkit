@@ -3,7 +3,7 @@ using DiagramToolkit.States;
 using System;
 using System.Drawing;
 
-namespace DiagramToolkit.Api.Shapes
+namespace DiagramToolkit.Shapes
 {
     public class Edge : LineSegment, IEdge
     {

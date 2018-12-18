@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace DiagramToolkit.Api.Shapes
+namespace DiagramToolkit.Shapes
 {
     public interface INode
     {
