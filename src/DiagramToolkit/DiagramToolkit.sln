@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramToolkit.Api", "Diagr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramPlugin.CurveTool", "DiagramPlugin.CurveTool\DiagramPlugin.CurveTool.csproj", "{20A1A677-02B5-4E81-9074-03FDABA878EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramPlugin.CircleTool", "DiagramPlugin.CircleTool\DiagramPlugin.CircleTool.csproj", "{0D68FE4E-B9FF-4C2B-8411-DB6E4B87EBEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{20A1A677-02B5-4E81-9074-03FDABA878EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20A1A677-02B5-4E81-9074-03FDABA878EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20A1A677-02B5-4E81-9074-03FDABA878EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D68FE4E-B9FF-4C2B-8411-DB6E4B87EBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D68FE4E-B9FF-4C2B-8411-DB6E4B87EBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D68FE4E-B9FF-4C2B-8411-DB6E4B87EBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D68FE4E-B9FF-4C2B-8411-DB6E4B87EBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
