@@ -6,5 +6,6 @@
         void onNodeStopMove();
         void setNode(INode src, INode dst);
         void setVisit(bool isVisited);
+        bool getVisit();
     }
 }

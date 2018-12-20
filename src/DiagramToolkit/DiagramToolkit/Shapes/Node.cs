@@ -15,7 +15,7 @@ namespace DiagramToolkit.Shapes
         public int cY;
         public int radius;
         public int nodeNum;
-
+        private bool isVisited = false;
         List<Tuple<IEdge, INode>> childs;
 
 
@@ -72,10 +72,20 @@ namespace DiagramToolkit.Shapes
 
         public override void RenderOnStaticView()
         {
-            this.pen.Color = Color.Black;
-            this.pen.DashStyle = DashStyle.Solid;
-            this.GetGraphics().DrawEllipse(pen, cX - radius / 2, cY - radius / 2, radius, radius);
-            this.drawNodeNum();
+            if (this.isVisited)
+            {
+                this.pen.Color = Color.Red;
+                this.pen.DashStyle = DashStyle.Solid;
+                this.GetGraphics().DrawEllipse(pen, cX - radius / 2, cY - radius / 2, radius, radius);
+                this.drawNodeNum();
+            }
+            else
+            {
+                this.pen.Color = Color.Black;
+                this.pen.DashStyle = DashStyle.Solid;
+                this.GetGraphics().DrawEllipse(pen, cX - radius / 2, cY - radius / 2, radius, radius);
+                this.drawNodeNum();
+            }
         }
 
         public override void Translate(int x, int y, int xAmount, int yAmount)
@@ -88,7 +98,7 @@ namespace DiagramToolkit.Shapes
             }
         }
 
-        public void addChild(Tuple<IEdge, INode> child)
+        public void addNeigbor(Tuple<IEdge, INode> child)
         {
             this.childs.Add(child);
         }
@@ -143,24 +153,18 @@ namespace DiagramToolkit.Shapes
 
         public void setVisit(bool isVisited)
         {
-            if (isVisited)
-            {
-                this.ChangeState(PreviewState.GetInstance());
-            }
-            else
-            {
-                this.ChangeState(StaticState.GetInstance());
-            }
+            this.isVisited = isVisited;
         }
 
-        public bool isVisited()
+        public bool getVisit()
         {
-            return this.State.GetType() == typeof(PreviewState);
+            return this.isVisited;
         }
 
         public List<Tuple<IEdge, INode>> GetChilds()
         {
             return this.childs;
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using DiagramToolkit.States;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace DiagramToolkit.Shapes
 {
@@ -11,6 +12,7 @@ namespace DiagramToolkit.Shapes
         private bool isDirected = false;
         private INode src;
         private INode dst;
+        private bool isVisited = false;
 
 
         public Edge()
@@ -74,8 +76,22 @@ namespace DiagramToolkit.Shapes
 
         public override void RenderOnStaticView()
         {
-            base.RenderOnStaticView();
-            this.pen.Color = Color.Black;
+            if (this.isVisited)
+            {
+                pen.Color = Color.Red;
+            }
+            else
+            {
+                pen.Color = Color.Black;
+            }
+            pen.DashStyle = DashStyle.Solid;
+
+            if (this.GetGraphics() != null)
+            {
+                this.GetGraphics().SmoothingMode = SmoothingMode.AntiAlias;
+                this.GetGraphics().DrawLine(pen, this.Startpoint, this.Endpoint);
+            }
+
             if (this.isDirected)
             {
                 this.drawCap(Endpoint.X, Endpoint.Y, Startpoint.X, Startpoint.Y);
@@ -94,19 +110,17 @@ namespace DiagramToolkit.Shapes
 
         public void setVisit(bool isVisited)
         {
-            if (isVisited)
-            {
-                this.ChangeState(PreviewState.GetInstance());
-            }
-            else
-            {
-                this.ChangeState(StaticState.GetInstance());
-            }
+            this.isVisited = isVisited;
         }
 
         public override void Translate(int x, int y, int xAmount, int yAmount)
         {
             
+        }
+
+        public bool getVisit()
+        {
+            return this.isVisited;
         }
     }
 }

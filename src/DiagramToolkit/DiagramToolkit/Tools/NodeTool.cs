@@ -3,7 +3,6 @@ using DiagramToolkit.States;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -111,7 +110,6 @@ namespace DiagramToolkit.Tools
                     
                     if (init != null && init is Node)
                     {
-                        Debug.WriteLine("dfs start");
                         this.worker = new BackgroundWorker();
                         worker.DoWork += runVisualization;
                         worker.RunWorkerAsync(argument: (INode)init);                      
@@ -156,16 +154,16 @@ namespace DiagramToolkit.Tools
                 INode endNode = (INode)end;
                 this.edge.setNode((INode)nodeStart, (INode)end);
 
-                this.nodeStart.addChild(new Tuple<IEdge, INode>(this.edge,(INode)end));
+                this.nodeStart.addNeigbor(new Tuple<IEdge, INode>(this.edge,(INode)end));
 
                 // if undirected
                 if (!this.isPressed[Keys.ShiftKey])
                 {
-                    endNode.addChild(new Tuple<IEdge, INode>(this.edge, nodeStart));
+                    endNode.addNeigbor(new Tuple<IEdge, INode>(this.edge, nodeStart));
                 }
                 else
                 {
-                    endNode.addChild(new Tuple<IEdge, INode>(this.edge, null));
+                    endNode.addNeigbor(new Tuple<IEdge, INode>(this.edge, null));
                 }
 
                 this.edge.ChangeState(StaticState.GetInstance());

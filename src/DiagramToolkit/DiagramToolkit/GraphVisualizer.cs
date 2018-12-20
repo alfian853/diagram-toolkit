@@ -20,7 +20,7 @@ namespace DiagramToolkit
                 cNode.setVisit(false);
                 foreach (Tuple<IEdge, INode> child in cNode.GetChilds())
                 {
-                    if (child.Item2 != null && child.Item2.isVisited())
+                    if (child.Item2 != null && child.Item2.getVisit())
                     {
                         child.Item1.setVisit(false);
                         queue.Enqueue(child.Item2);
@@ -37,7 +37,7 @@ namespace DiagramToolkit
             Thread.Sleep(1000);
             foreach (Tuple<IEdge, INode> child in cNode.GetChilds())
             {
-                if (child.Item2 != null && !child.Item2.isVisited())
+                if (child.Item2 != null && !child.Item2.getVisit())
                 {
                     child.Item1.setVisit(true);
                     dfsUtil(child.Item2);
@@ -65,7 +65,7 @@ namespace DiagramToolkit
                 Thread.Sleep(1000);
                 foreach (Tuple<IEdge, INode> child in cNode.GetChilds())
                 {
-                    if (child.Item2 != null && !child.Item2.isVisited())
+                    if (child.Item2 != null && !child.Item2.getVisit())
                     {
                         child.Item1.setVisit(true);
                         child.Item2.setVisit(true);
